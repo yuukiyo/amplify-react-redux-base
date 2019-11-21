@@ -3,12 +3,15 @@ import { AppState } from './store';
 import { TodoComponent } from "./todoComponent";
 import { Dispatch } from "redux";
 import { Actions } from "./action";
+// import Amplify, { API, graphqlOperation } from 'aws-amplify'
+// import awsconfig from './aws-exports';
+// Amplify.configure(awsconfig);
 
 export interface todoHundler {
     hundleNameUpdate(s: string): void
     hundleDescriptionUpdate(s: string): void
     hundleTodoUpdate(): void
-    hundleTodoSend(): void
+    hundleTodoSend(name, description): void
 }
 
 const hundleNameUpdate = (name: string) => async(dispatch: Dispatch) => {
@@ -23,8 +26,9 @@ const hundleTodoUpdate = () => async() => {
     console.log("update")
 }
 
-const hundleTodoSend = () => async() => {
-    console.log("send")
+const hundleTodoSend = (name: string, description: string) => async() => {
+    console.log(name)
+    console.log(description)
 }
 
 const mapStateToProps = (appState: AppState) => {

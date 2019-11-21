@@ -43,7 +43,10 @@ export const TodoComponent: React.FC<Props> = (props: Props) => {
                     className={classes.textFieldWrapper}
                 />
                 <Fab 
-                onClick={() => props.hundleTodoSend()}
+                onClick={() => props.hundleTodoSend(
+                    props.name,
+                    props.description
+                )}
                 variant="extended" 
                 aria-label="like">
                     <NavigationIcon />Send
